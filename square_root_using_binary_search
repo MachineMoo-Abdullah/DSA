@@ -2,7 +2,7 @@
 using namespace std;
 
 
-int binary_search(int n)
+int binary_search_sqrt(int n)
 {
     int s = 0;
     int e = n/2;
@@ -30,6 +30,6 @@ int binary_search(int n)
 }
 int main() {
     int n = 35;
-    cout<<"Square root of n is : "<<binary_search(n);
+    cout<<"Square root of n is : "<<binary_search_sqrt(n);
     return 0;
 }
