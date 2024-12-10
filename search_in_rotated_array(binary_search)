@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+int pivot_point(int arr[], int n) {
+    int s = 0, e = n - 1;
+    int mid = s + (e - s) / 2; 
+    while (s < e) {
+        if (arr[mid] >= arr[0]) {
+            s = mid + 1;
+        } else {
+            e = mid;
+        }
+        mid = s + (e - s) / 2;  
+    }
+    return s;  
+}
+int binary_search(int arr[], int s, int e, int key)
+{
+    int start =s;
+    int end = e;
+    int mid = s + (e-s)/2;
+    while(s<=e){
+        if (arr[mid] == key)
+        {
+            return mid;
+        }
+        else if(arr[mid]>key)
+        {
+            e = mid-1;
+        }
+        else if (arr[mid]< key)
+            s = mid+1;
+        mid = s + (e-s)/2;
+    }
+    return -1;
+}
+int main() {
+    int n = 7;
+    int arr[n] = {4, 5, 6, 7, 1, 2, 3};
+    int k = 4;
+    int pivot = pivot_point(arr,n);
+    if(k >= arr[pivot] && k <= arr[n-1])
+    {
+        cout<<"element found at index "<<binary_search(arr,pivot,n-1,k);
+    }
+    else
+        cout<<"element found at index "<<binary_search(arr,0,pivot-1,k);
+    return 0;
+}
