@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int pivot_point(int arr[], int n) {
+    int s = 0, e = n - 1;
+    int mid = s + (e - s) / 2; 
+    while (s < e) {
+        if (arr[mid] >= arr[0]) {
+            s = mid + 1;
+        } else {
+            e = mid;
+        }
+        mid = s + (e - s) / 2;  
+    }
+    return s;  
+}
+
+int main() {
+    int arr[7] = {4, 5, 6, 7, 1, 2, 3};
+    cout << "Pivot point of array is at : " << pivot_point(arr, 7) << endl;
+    return 0;
+}
