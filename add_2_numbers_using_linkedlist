@@ -1,0 +1,31 @@
+Node* add_linked_lists(Node* l1, Node* l2) {
+    Node* head = NULL; // Head of the resulting linked list
+    Node* tail = NULL; // Tail pointer to append new nodes
+    int carry = 0;
+
+    while (l1 != NULL || l2 != NULL || carry != 0) {
+        int sum = carry;
+        if (l1 != NULL) {
+            sum += l1->data;
+            l1 = l1->next;
+        }
+        if (l2 != NULL) {
+            sum += l2->data;
+            l2 = l2->next;
+        }
+
+        carry = sum / 10;
+        Node* new_node = new Node(sum % 10);
+
+        if (head == NULL) {
+            // Initialize the head and tail for the first node
+            head = new_node;
+            tail = new_node;
+        } else {
+            // Append new nodes to the tail
+            tail->next = new_node;
+            tail = new_node;
+        }
+    }
+    return head;
+}
