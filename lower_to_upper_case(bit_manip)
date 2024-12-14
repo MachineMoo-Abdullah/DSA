@@ -1,0 +1,9 @@
+def to_upper(str):
+    new_str = ""
+    for i in str:
+        new_str += chr(ord(i) & ~(1 << 5))
+    return new_str
+
+if __name__ == "__main__":
+    str = "abdullah"
+    print(to_upper(str))
