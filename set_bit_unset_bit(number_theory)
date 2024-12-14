@@ -8,6 +8,12 @@ def is_bit_set(num,pos):
     else:
         return False
 
+def unset_bit(num,pos):
+    return num & (~(1 << pos))
+
+def set_bit(num,pos):
+    return num | (1 << pos)
+
 if __name__ == "__main__":
     x = 9
     printbinary(x)
@@ -16,3 +22,7 @@ if __name__ == "__main__":
         print("Bit is set")
     else:
         print("bit is not set")
+
+    printbinary(x)
+    printbinary(set_bit(x,2))
+    printbinary(unset_bit(x,3))
