@@ -1,0 +1,16 @@
+
+def printbinary(num):
+    for i in range(10,-1,-1):
+        print((num >> i) & 1,end='')
+    print()
+
+def clear_LSB_bits(num,i):
+    return num & (~((1<<(i+1))-1))
+
+def clear_MSB_bits(num,i):
+    return num & ((1 << (i+1)) - 1)
+
+if __name__ == "__main__":
+    printbinary(29)
+    printbinary(clear_LSB_bits(29,2))
+    printbinary(clear_MSB_bits(29, 2))
