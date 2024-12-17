@@ -1,20 +1,19 @@
-def bfs(graph, visited, node, goal):
-    queue = [node]
-    
-    visited.append(node)
+def bfs_traversal(graph, start_node):
+    queue = [start_node]
+    visited = []
+    visited.append(start_node)
+    traversal_order = []
     
     while queue:
         current_node = queue.pop(0)
-        
-        if current_node == goal:
-            return True
+        traversal_order.append(current_node)
         
         for neighbor in graph[current_node]:
             if neighbor not in visited:
                 visited.append(neighbor)
                 queue.append(neighbor)
     
-    return False
+    return traversal_order
 
 graph = {
     0: [1, 2],
@@ -23,9 +22,6 @@ graph = {
     3: [1]
 }
 
-visited = [] 
 start_node = 0
-goal_node = 3
-
-result = bfs(graph, visited, start_node, goal_node)
-print("Goal found:", result)
+traversal_result = bfs_traversal(graph, start_node)
+print("BFS Traversal Order:", traversal_result)
