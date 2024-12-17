@@ -5,7 +5,7 @@ def dfs(graph, visited, node):
         for neighbor in graph[node]:
             dfs(graph, visited, neighbor)
 
-# Example usage
+
 graph = {
     0: [1, 2],
     1: [0, 2, 3],
