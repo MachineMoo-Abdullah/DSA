@@ -1,0 +1,17 @@
+def adjacencyList(edges, num_vertices):
+    adj_list = []
+    for i in range(num_vertices):
+        adj_list.append([])
+    
+    for u, v in edges:
+        adj_list[u].append(v) 
+        adj_list[v].append(u)
+        
+    
+    for i in range(num_vertices):
+        print(f"{i} {adj_list[i]}")
+
+num_vertices = 4
+edges = [[0, 1], [1, 3], [0, 2], [1, 2]]
+
+adjacencyList(edges, num_vertices)
