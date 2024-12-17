@@ -1,0 +1,20 @@
+num_vertices = 4
+
+adj_matrix = []
+for i in range(num_vertices):
+    row = []  
+    for j in range(num_vertices):
+        row.append(0)  
+        
+    adj_matrix.append(row)
+
+def add_edge(matrix, u, v):
+    matrix[u][v] = 1 
+    
+add_edge(adj_matrix, 0, 1)
+add_edge(adj_matrix, 1, 2)
+add_edge(adj_matrix, 2, 3)
+
+print("Expanded Adjacency Matrix:")
+for row in adj_matrix:
+    print(row)
